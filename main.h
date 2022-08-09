@@ -3,6 +3,20 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+
+typedef struct flags
+{
+	int plus;
+	int space;
+	int hash;
+} flags_t;
+
+typedef struct printhandler
+{
+	char c;
+	int (*f)(va_list ap, flags_t *f);
+} ph;
+
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_string(char *);
